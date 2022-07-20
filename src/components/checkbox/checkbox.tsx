@@ -25,14 +25,14 @@ const StyledLabel = styled.label`
   display: inline-block;
   cursor: pointer;
   margin: 0.6em 16px;
-  padding:4px 0px 0px 16px;
+  padding: 4px 0px 0px 16px;
 `;
 
 const Indicator = styled.div`
   width: 24px;
   height: 24px;
   /* background: #e6e6e6; */
-  background:${props=>props.color};
+  background: ${CustomColors.gray};
   position: absolute;
   top: 0em;
   left: -1.6em;
@@ -44,7 +44,7 @@ const Indicator = styled.div`
   }
 
   ${StyledLabel}:hover & {
-    background: #939BF4;
+    background: #939bf4;
   }
 
   &::after {
@@ -71,7 +71,9 @@ export type CheckboxProps = {
   handleChecked: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-
+interface IndicatorProps {
+  isChecked: boolean;
+}
 
 const Checkbox = () => {
   const [checked, setChecked] = useState(false);
@@ -83,7 +85,12 @@ const Checkbox = () => {
   return (
     <StyledLabel>
       Full Time Only
-      <StyledInput type="checkbox" id="online" onChange={handleChecked} checked={checked} />
+      <StyledInput
+        type="checkbox"
+        id="online"
+        onChange={handleChecked}
+        checked={checked}
+      />
       <Indicator />
     </StyledLabel>
   );
