@@ -31,8 +31,7 @@ const StyledLabel = styled.label`
 const Indicator = styled.div`
   width: 24px;
   height: 24px;
-  /* background: #e6e6e6; */
-  background: ${CustomColors.gray};
+  background: ${StyledInput.checked ? "#19202D" : "#9DAEC2"};
   position: absolute;
   top: 0em;
   left: -1.6em;
@@ -71,10 +70,6 @@ export type CheckboxProps = {
   handleChecked: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
-interface IndicatorProps {
-  isChecked: boolean;
-}
-
 const Checkbox = () => {
   const [checked, setChecked] = useState(false);
 
@@ -91,7 +86,7 @@ const Checkbox = () => {
         onChange={handleChecked}
         checked={checked}
       />
-      <Indicator />
+      <Indicator/>
     </StyledLabel>
   );
 };

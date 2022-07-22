@@ -11,4 +11,6 @@ export default {
 const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+    checked:true
+};
